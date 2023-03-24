@@ -3,37 +3,41 @@ package primer.programa;
 import java.util.Scanner;
 
 /**
- * Codificación de frase con función
+ * Ejercicio2Clase7
  */
 public class PrimerPrograma {
-
     /*
-    Crea un procedimiento EsMultiplo que reciba los dos números pasados por el usuario, validando que 
-    el primer número múltiplo del segundo e imprima si el primer número es múltiplo del segundo, sino 
-    informe que no lo son.
+Crea una aplicación que a través de una función nos convierta una cantidad de euros introducida 
+por teclado a otra moneda, estas pueden ser a dólares, yenes o libras. La función tendrá como parámetros, 
+la cantidad de euros y la moneda a convertir que será una cadena, este no devolverá ningún valor y mostrará 
+un mensaje indicando el cambio (void).
+El cambio de divisas es:
+* 0.86 libras es un 1 €
+* 1.28611 $ es un 1 €
+* 129.852 yenes es un 1 €
      */
     public static void main(String[] args) {
-        int num1,num2;
         Scanner leer = new Scanner(System.in);
-        System.out.println("Ingrese dos números.");
-        num1= leer.nextInt();
-        num2= leer.nextInt();
-        
-        multiplos(num1,num2);
-        
-       /*
-        String retorno = codificacion(frase);
-        System.out.println(retorno);
-*/
-    }
+        String respuesta = "Si"; //Inicialmente le damos el valor de Si a respuesta para que se ejecute el bucle  
+  
+        do {
+            System.out.println("Ingrese la cantidad de euros para realizar las conversiones.");
+            
+            int euros = leer.nextInt();
+            leer.nextLine(); //Consumir el salto de línea pendiente
 
-    //Subprograma que verifica si son múltiplos los dos números ingresados
-    public static void multiplos(int num1, int num2) {
-    
-if (num1%num2==0) {
-    System.out.println("Los números ingresados son múltiplos");
-} else {
-    System.out.println("Los números ingresados no son múltiplos");
-}
+            conversion(euros);
+            
+            System.out.println("¿Quiere realizar otra conversión? Si/No");
+        
+            respuesta=leer.nextLine();
+            
+        } while (respuesta.equalsIgnoreCase("Si"));
+    }
+    //Subprograma que convierte el Euro en otras monedas
+    public static void conversion(int euros) {
+        System.out.println("El equivalente en libras es " + 0.86 * euros);
+        System.out.println("El equivalente en dólares es " + 1.28611 * euros);
+        System.out.println("El equivalente en yenes es " + 129.852 * euros);
     }
 }
