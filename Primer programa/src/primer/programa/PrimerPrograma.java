@@ -17,6 +17,7 @@ public class PrimerPrograma {
     public static void main(String[] args) {
         System.out.println("Bienvenido al generador de sopas de letras para niños.");
         System.out.println("Nueva frase.");
+        System.out.println("Nueva frase dos");
         System.out.println("Por favor ingrese 5 palabras de 3 a 5 letras cada una.");
         Scanner leer = new Scanner(System.in);
         //Definir una matriz tipo String de 20x20.
