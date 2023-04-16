@@ -10,7 +10,7 @@ package Entidad;
  * @author USUARIO
  */
 public class Cafetera {
-    public int capacidadMaxima;
+    public int capacidadMaxima=100;
     public int cantidadActual;
     public Cafetera() {
     }

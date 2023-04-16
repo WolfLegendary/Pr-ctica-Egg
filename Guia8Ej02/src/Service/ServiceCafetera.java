@@ -26,7 +26,7 @@ public class ServiceCafetera {
     Cafetera sCafetera = new Cafetera();
 
     public int llenarCafetera() {
-        sCafetera.setCapacidadMaxima(100);
+       // sCafetera.setCapacidadMaxima(100);
         sCafetera.setCantidadActual(sCafetera.getCapacidadMaxima());
         return sCafetera.getCantidadActual();
     }
