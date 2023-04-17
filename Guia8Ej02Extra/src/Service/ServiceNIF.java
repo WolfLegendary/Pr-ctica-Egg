@@ -25,6 +25,31 @@ public class ServiceNIF {
 
     //Método crearNif(): le pide al usuario el DNI y con ese DNI calcula la letra que le corresponderá. 
     public char crearNif() {
+        //char [] vector=new char [22];
+        //vector[0]='T';
+        //vector[1]='R';
+        //vector[2]='W';
+        //vector[3]='A';
+        //vector[4]='G';
+        //vector[5]='M';
+        //vector[6]='Y';
+        //vector[7]='F';
+        //vector[8]='P';
+        //vector[9]='D';
+        //vector[10]='X';
+        //vector[11]='B';
+        //vector[12]='N';
+        //vector[13]='J';
+        //vector[14]='Z';
+        //vector[15]='S';
+        //vector[16]='Q';
+        //vector[17]='V';
+        //vector[18]='H';
+        //vector[19]='L';
+        //vector[20]='C';
+        //vector[21]='K';
+        //vector[22]='E';
+        
         char letra = 0;
         System.out.println("Ingrese su DNI.");
         sNIF.setDni(leer.nextLong());
@@ -108,6 +133,7 @@ obtener la letra correspondiente.*/
                 System.out.println("No se encontró la letra NIF");// Código a ejecutar si la expresión no coincide con ningún caso
                 break;
         }
+        
         sNIF.setLetra(letra);
         return sNIF.getLetra();
     }
