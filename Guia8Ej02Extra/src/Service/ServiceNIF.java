@@ -25,32 +25,30 @@ public class ServiceNIF {
 
     //Método crearNif(): le pide al usuario el DNI y con ese DNI calcula la letra que le corresponderá. 
     public char crearNif() {
-        //char [] vector=new char [22];
-        //vector[0]='T';
-        //vector[1]='R';
-        //vector[2]='W';
-        //vector[3]='A';
-        //vector[4]='G';
-        //vector[5]='M';
-        //vector[6]='Y';
-        //vector[7]='F';
-        //vector[8]='P';
-        //vector[9]='D';
-        //vector[10]='X';
-        //vector[11]='B';
-        //vector[12]='N';
-        //vector[13]='J';
-        //vector[14]='Z';
-        //vector[15]='S';
-        //vector[16]='Q';
-        //vector[17]='V';
-        //vector[18]='H';
-        //vector[19]='L';
-        //vector[20]='C';
-        //vector[21]='K';
-        //vector[22]='E';
-        
-        char letra = 0;
+        char [] vector=new char [23];
+        vector[0]='T';
+        vector[1]='R';
+        vector[2]='W';
+        vector[3]='A';
+        vector[4]='G';
+        vector[5]='M';
+        vector[6]='Y';
+        vector[7]='F';
+        vector[8]='P';
+        vector[9]='D';
+        vector[10]='X';
+        vector[11]='B';
+        vector[12]='N';
+        vector[13]='J';
+        vector[14]='Z';
+        vector[15]='S';
+        vector[16]='Q';
+        vector[17]='V';
+        vector[18]='H';
+        vector[19]='L';
+        vector[20]='C';
+        vector[21]='K';
+        vector[22]='E';
         System.out.println("Ingrese su DNI.");
         sNIF.setDni(leer.nextLong());
 /*La letra correspondiente al dígito verificador se calculará a traves de un método que funciona de la siguiente 
@@ -59,82 +57,7 @@ Para calcular la letra se toma el resto de dividir el número de DNI por 23 (el 
 El método debe buscar en un array (vector) de caracteres la posición que corresponda al resto de la división para 
 obtener la letra correspondiente.*/
         int resto = (int) (sNIF.getDni() % 23);
-        switch (resto) {
-            case 0:
-                letra = 'T';
-                break;
-            case 1:
-                letra = 'R';
-                break;
-            case 2:
-                letra = 'W';
-                break;
-            case 3:
-                letra = 'A';
-                break;
-            case 4:
-                letra = 'G';
-                break;
-            case 5:
-                letra = 'M';
-                break;
-            case 6:
-                letra = 'Y';
-                break;
-            case 7:
-                letra = 'F';
-                break;
-            case 8:
-                letra = 'P';
-                break;
-            case 9:
-                letra = 'D';
-                break;
-            case 10:
-                letra = 'X';
-                break;
-            case 11:
-                letra = 'B';
-                break;
-            case 12:
-                letra = 'N';
-                break;
-            case 13:
-                letra = 'J';
-                break;
-            case 14:
-                letra = 'Z';
-                break;
-            case 15:
-                letra = 'S';
-                break;
-            case 16:
-                letra = 'Q';
-                break;
-            case 17:
-                letra = 'V';
-                break;
-            case 18:
-                letra = 'H';
-                break;
-            case 19:
-                letra = 'L';
-                break;
-            case 20:
-                letra = 'C';
-                break;
-            case 21:
-                letra = 'K';
-                break;
-            case 22:
-                letra = 'E';
-                break;
-            default:
-                System.out.println("No se encontró la letra NIF");// Código a ejecutar si la expresión no coincide con ningún caso
-                break;
-        }
-        
-        sNIF.setLetra(letra);
+        sNIF.setLetra(vector[resto]);
         return sNIF.getLetra();
     }
 
