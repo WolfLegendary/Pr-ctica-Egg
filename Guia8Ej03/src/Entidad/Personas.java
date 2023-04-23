@@ -1,12 +1,18 @@
 package Entidad;
 
 public class Personas {
+
     // Atributos
-    private String nombre;
-    private int edad;
-    private char sexo;
-    private double peso;
-    private double altura;
+    public Personas(String nombre, int edad, char sexo, double peso, double altura) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.sexo = sexo;
+        this.peso = peso;
+        this.altura = altura;
+    }
+
+    public Personas() {
+    }
 
     public String getNombre() {
         return nombre;
@@ -47,18 +53,13 @@ public class Personas {
     public void setAltura(double altura) {
         this.altura = altura;
     }
+    private String nombre;
+    private int edad;
+    private char sexo;
+    private double peso;
+    private double altura;
 
-    public Personas(String nombre, int edad, char sexo, double peso, double altura) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.sexo = sexo;
-        this.peso = peso;
-        this.altura = altura;
-    }
-
-    public Personas() {
-    }
-    
+   
     
 }
 

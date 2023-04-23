@@ -26,9 +26,10 @@ public class Guia8Ej02 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
+        //Crear el objeto o instanciar
         ServiceCafetera cafe = new ServiceCafetera();
         
+        //LLamar lo métodos
         System.out.println(cafe.llenarCafetera());
 
         System.out.println(cafe.servirTaza());
