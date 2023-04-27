@@ -24,27 +24,28 @@ podemos crear unos métodos adicionales.
  */
 package guia8ej03;
 
+import Entidad.Personas;
 import Service.ServicePersona;
 
 public class Guia8Ej03 {
 
     public static void main(String[] args) {
+        //Definimos la cantidad de personas.
+        int cantPersonas = 2;
+        //Creamos objeto servicio persona
+        ServicePersona persona = new ServicePersona();
+        //Creamos vector tipo personas de 4 elementos
+        Personas[] personas = new Personas[cantPersonas];
         //Variable que guarda si es mayor de edad del tipo booleana.
-        boolean[] mayorDeEdad = new boolean[4];
+        boolean[] mayorDeEdad = new boolean[cantPersonas];
         //Variable de tipo entero que guarda la conclusión del cálculo IMC.
-        int[] resultadosIMC = new int[4];
-        //Se crean 4 objetos de tipo Persona. 
-        ServicePersona[] persona = new ServicePersona[4];
-        //Se inicializan los 4 objetos tipo Persona.
-        for (int i = 0; i < 4; i++) {
-            persona[i] = new ServicePersona();
-            //Mientras se incializan
-            //Se crean las personas y se llaman los métodos secundarios.
-            //Tambíen guardamos los resultados de dos métodos en vectores distintos. 
-            persona[i].crearPersona();
-            mayorDeEdad[i] = persona[i].mayorDeEdad();
-            resultadosIMC[i] = persona[i].metodoCalcularIMC();
-        }
+        int[] resultadosIMC = new int[cantPersonas];
+        //Creamos personas.
+        persona.crearPersona(personas);
+
+        mayorDeEdad = persona.mayorDeEdad(personas);
+        resultadosIMC = persona.metodoCalcularIMC(personas);
+
         //Llamamos método para calcular porcentajes de peso de ideal por debajo, por arriba e ideal.
         porcentajeIMC(resultadosIMC);
         //LLamamos método para calcular porcentaje de mayor de edad
@@ -57,7 +58,6 @@ public class Guia8Ej03 {
     //Método de porcentaje de mayor de edad
     public static double porcentajeMayorEdad(boolean[] edad) {
         int mayoresDeEdad = 0;
-
         for (int i = 0; i < edad.length; i++) {
             if (edad[i] == true) {
                 mayoresDeEdad++;
