@@ -74,9 +74,9 @@ public class Guia9Ej02Extra {
         parametros=juego.crearJuego();
  
         do {
-        juego.mostrarLongitud();
-        juego.encontradas();
-        juego.intentos();
+        juego.mostrarLongitud(parametros);
+        juego.encontradas(parametros);
+        juego.intentos(parametros);
             if (parametros.getCantLetrasEncontradas()==parametros.getLongitud()) {
                 System.out.println("¡Has ganado!");
                 parametros.setCantJugadasMaximas(0);
