@@ -2,7 +2,7 @@
 
 <ClassDiagram name="EjemploGuia11Ej02">
   <ClassDiagramComponents>
-    <Class name="EjemploGuia11Ej02" package="ejemploguia11ej02" visibility="public" xPosition="20.0" yPosition="20.0">
+    <Class name="EjemploGuia11Ej02" package="ejemploguia11ej02" visibility="public" xPosition="5.0" yPosition="20.0">
       <Fields/>
       <Constructors/>
       <Methods>
@@ -11,7 +11,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="equipo" package="entidades" visibility="public" xPosition="320.0" yPosition="20.0">
+    <Class name="equipo" package="entidades" visibility="public" xPosition="244.0" yPosition="20.0">
       <Fields>
         <Field name="jugadores" type="ArrayList&lt;jugador&gt;" visibility="package"/>
       </Fields>
@@ -26,7 +26,7 @@
         <Method name="toString" returnType="String" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="jugador" package="entidades" visibility="public" xPosition="620.0" yPosition="20.0">
+    <Class name="jugador" package="entidades" visibility="public" xPosition="366.0" yPosition="254.0">
       <Fields>
         <Field name="nombre" type="String" visibility="private"/>
         <Field name="apellido" type="String" visibility="private"/>
@@ -62,7 +62,7 @@
         <Method name="toString" returnType="String" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="servicioEntidades" package="servicioEntidades" visibility="public" xPosition="920.0" yPosition="20.0">
+    <Class name="servicioEntidades" package="servicioEntidades" visibility="public" xPosition="758.0" yPosition="20.0">
       <Fields>
         <Field name="leertexto" type="Scanner" visibility="package"/>
         <Field name="leernum" type="Scanner" visibility="package"/>
@@ -77,8 +77,8 @@
     </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <HasRelation name="jugadores" source="entidades.equipo" target="entidades.jugador" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;jugador&gt;"/>
     <UseRelation source="servicioEntidades.servicioEntidades" target="entidades.jugador" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="jugadores" source="entidades.equipo" target="entidades.jugador" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;jugador&gt;"/>
     <UseRelation source="entidades.equipo" target="entidades.jugador" sourceCardinality="1..1" targetCardinality="1..1"/>
   </ClassDiagramRelations>
 </ClassDiagram>
