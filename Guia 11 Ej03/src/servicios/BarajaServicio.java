@@ -35,7 +35,8 @@ public class BarajaServicio {
 
     private Collections c;
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
-
+    ArrayList<Carta> entregadas=new ArrayList<>();
+    
     public Baraja crearBaraja() {
         Baraja baraja = new Baraja();
         ArrayList<Carta> cartas = new ArrayList<>();
@@ -89,6 +90,7 @@ public class BarajaServicio {
     }
 
     public int darCartas(Baraja baraja) {
+        
         ArrayList<Carta> cartas = baraja.getBaraja();
         Iterator<Carta> it = cartas.iterator();
         int dadas;
@@ -101,6 +103,7 @@ public class BarajaServicio {
                 if (control < dadas) {
                     control++;
                     Carta carta = it.next(); // Obtener la carta actual del iterador
+                    entregadas.add(carta);
                     it.remove();
                 } else {
                     break;
@@ -115,6 +118,10 @@ public class BarajaServicio {
             }
         }
         baraja.setBaraja(cartas);
+        System.out.println("Se entregarón las siguientes cartas hasta ahora:");
+        for (Carta elemento : entregadas) {
+            System.out.println(elemento);
+        }
         return dadas;
     }
 
