@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="relaciones.reflexiva">
+  <ClassDiagramComponents>
+    <Class name="Nodo" package="relaciones.reflexiva" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="value" type="String" visibility="private"/>
+        <Field name="next" type="Nodo" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Persona" package="relaciones.reflexiva" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="amigos" type="List&lt;Persona&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="next" source="relaciones.reflexiva.Nodo" target="relaciones.reflexiva.Nodo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="amigos" source="relaciones.reflexiva.Persona" target="relaciones.reflexiva.Persona" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Persona&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

@@ -72,22 +72,7 @@ public class Guia11Ej02 {
         r.llenarRevolver();
         
         System.out.println("Revolver cargado. Se da inicio al juego");
-        /* FORMA ABREVIADA SIN LLAMAR A JUEGO
-        for (int i = 0; i < jugadores.size(); i++) {
-            jugadores.get(i).disparo(r);
-            
-            if (jugadores.get(i).getMojado()) {
-                System.out.println("El Jugador número "+(i+1)+" se mojó.");
-                break;
-            }else{
-                System.out.println("El Jugador número "+(i+1)+" no se mojó.");
-                System.out.println("El juego continúa.");
-            }
-        }
-        
-        System.out.println("Fin del programa.");
-        */
-        
+
         juego j = new juego();
         j.llenarJuego(jugadores, r);
         
