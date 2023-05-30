@@ -24,6 +24,7 @@ import entidades.Carta;
 import enums.Palo;
 import java.util.ArrayList;
 import java.util.Collections;
+//import java.util.Collections;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -33,7 +34,8 @@ import java.util.Scanner;
  */
 public class BarajaServicio {
 
-    private Collections c;
+    
+    private Collections mezcla;
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
     ArrayList<Carta> entregadas=new ArrayList<>();
     
@@ -63,7 +65,7 @@ public class BarajaServicio {
     @SuppressWarnings("static-access")
 
     public Baraja barajar(Baraja baraja) {
-        c.shuffle(baraja.getBaraja());
+        mezcla.shuffle(baraja.getBaraja());
         return baraja;
     }
 
