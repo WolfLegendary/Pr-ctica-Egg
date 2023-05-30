@@ -7,7 +7,7 @@
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="Empresa" package="relaciones.agregacion" visibility="public" xPosition="320.0" yPosition="20.0">
+    <Class name="Empresa" package="relaciones.agregacion" visibility="public" xPosition="355.0" yPosition="43.0">
       <Fields>
         <Field name="clientes" type="List&lt;Cliente&gt;" visibility="private"/>
       </Fields>
