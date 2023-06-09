@@ -1,0 +1,26 @@
+/*
+En los barcos de tipo especial el módulo de cada barco se calcula sacando el módulo normal y
+sumándole el atributo particular de cada barco. En los veleros se suma el número de mástiles,
+en los barcos a motor se le suma la potencia en CV y en los yates se suma la potencia en CV y
+el número de camarotes.
+ */
+package servicios;
+
+import entidades.Alquiler;
+import entidades.Yate;
+
+/**
+ *
+ * @author The Wolf Legendary
+ */
+public class CalAlquilerYate extends CalculoAlquiler {
+
+    @Override
+    public int calculoAlquiler(Alquiler alquiler) {
+        //Introducimos obj alquiler por parametro
+        alquiler.setPrecioFinal(super.calculoAlquiler(alquiler));  
+        Yate yate = (Yate) alquiler.getBarco();
+        alquiler.setPrecioFinal(alquiler.getPrecioFinal() + yate.getPotenciaCV() + yate.getNumeroCamarotes());
+        return alquiler.getPrecioFinal();
+    }
+}
