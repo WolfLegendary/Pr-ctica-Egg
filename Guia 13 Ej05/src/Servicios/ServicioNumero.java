@@ -53,13 +53,13 @@ public class ServicioNumero {
                 }
             } while (condicion);
         } catch (NumberFormatException | InputMismatchException e) {
-            intentos++;
             System.out.println("Se han realizado " + intentos + " intentos.");
             throw new ExcepcionNumero("Ha ingresado algo que no es un número.");
         }catch (Exception e) {
-             intentos++;
             System.out.println("Se han realizado " + intentos + " intentos.");
             throw new ExcepcionNumero("Error del sistema.");
+        }finally{
+        System.out.println("Prueba.");
         }
 
     }
