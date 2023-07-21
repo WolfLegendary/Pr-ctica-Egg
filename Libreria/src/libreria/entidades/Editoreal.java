@@ -22,7 +22,7 @@ public class Editoreal implements Serializable {
     @Column(name = "nombre")
     private String nombre;
     @Column(name = "alta")
-    private Boolean alta;
+    private Boolean alta = true;
     //Métodos
     public Editoreal() {
     }

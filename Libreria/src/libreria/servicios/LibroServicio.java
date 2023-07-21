@@ -1,5 +1,6 @@
 package libreria.servicios;
 
+import java.util.List;
 import libreria.entidades.Autor;
 import libreria.entidades.Editoreal;
 import libreria.entidades.Libro;
@@ -45,39 +46,9 @@ public class LibroServicio {
         }
     }
 
-}
-/*
-
-    private final PruebaDAO DAO;
-
-    public ServicioService() {
-        this.DAO = new PruebaDAO();
-    }
-
-    public Entidad crearEntidad(String nombre) {
-        Entidad entidad = new Entidad();
+    public boolean eliminarPorISBN(Long isbn) {
         try {
-            entidad.setNombre(nombre);
-            DAO.guardar(entidad);
-            return entidad;
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return null;
-        }
-    }
-
-    public Entidad buscarPorNombre(String nombre) {
-        try {
-            return DAO.buscarPorNombre(nombre);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return null;
-        }
-    }
-
-    public boolean eliminarPorId(Long id) {
-        try {
-            DAO.eliminarEntidad(id);
+            DAO.eliminarLibro(isbn);
             return true;
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -85,31 +56,74 @@ public class LibroServicio {
         }
     }
 
-    public void altaBajaLibroPorId(Long id) {
+    public Libro buscarPorTitulo(String titulo) {
         try {
-            DAO.altaBajaEntidad(id);
+            Libro libro = null;
+            libro = DAO.buscarPorTitulo(titulo);
+            return libro;
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println(e.getMessage());
         }
+        return null;
     }
 
-    public void modificarEntidad(Entidad entidad) {
+    public List<Libro> listarLibros() {
         try {
-            DAO.modificarEntidad(entidad);
+            List<Libro> libros = null;
+            libros = DAO.listarLibros();
+            System.out.println("");
+            for (Libro libro : libros) {
+                System.out.println(libro);
+                System.out.println("");
+            }
+            return libros;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+
+    public void bajaAltaLibro(Long isbn) {
+        try {
+            DAO.altaBajaLibro(isbn);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
-    
-    
-    public List<Entidad> listarEntidades() {
+
+    public Libro buscarPorISBN(Long isbn) {
         try {
-            return DAO.listarEntidades();
+            Libro libro = null;
+            libro = DAO.buscarPorISBN(isbn);
+            return libro;
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            return null;
         }
+        return null;
     }
 
+    public void modificarLibro(Libro libro) {
+        try {
+            if (libro != null) {
+                DAO.modificarLibro(libro);
+            } else {
+                System.out.println("No se econtró libro para modificar.");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 
-*/
+    }
+
+    public Libro buscarPorNombreDeAutor(String autor) {
+        try {
+            Libro libro = null;
+            libro = DAO.buscarPorNombreDeAutor(autor);
+            return libro;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+    
+}
