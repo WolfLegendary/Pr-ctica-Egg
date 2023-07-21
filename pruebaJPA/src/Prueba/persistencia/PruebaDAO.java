@@ -13,7 +13,7 @@ public class PruebaDAO extends DAO<Entidad> {
     public void guardar(Entidad entidad) {
         super.guardar(entidad);
     }
-    
+
     //No es buena práctica andar borrando entidades en la práctica, usaremos un bit booleano mejor.
     public void eliminarEntidad(Long id) {
         conectar();
@@ -33,7 +33,7 @@ public class PruebaDAO extends DAO<Entidad> {
         }
         desconectar();
     }
-    
+
     public void altaBajaEntidad(Long id) {
         conectar();
         Entidad entidad;
@@ -65,7 +65,7 @@ public class PruebaDAO extends DAO<Entidad> {
         desconectar();
         return entidad;
     }
-    
+
     public void modificarEntidad(Entidad entidad) throws Exception {
         conectar();
         try {
@@ -80,7 +80,7 @@ public class PruebaDAO extends DAO<Entidad> {
         }
         desconectar();
     }
-    
+
     public List<Entidad> listarEntidades() {
         conectar();
         List<Entidad> entidades = em.createQuery("SELECT e FROM Entidad e")
