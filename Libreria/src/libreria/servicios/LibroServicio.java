@@ -126,4 +126,15 @@ public class LibroServicio {
         return null;
     }
     
+    public Libro buscarPorNombreDeEditoreal(String nombre) {
+        try {
+            Libro libro = null;
+            libro = DAO.buscarPorNombreDeEditoreal(nombre);
+            return libro;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+    
 }

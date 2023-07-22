@@ -34,4 +34,17 @@ public class AutorServicio {
             return null;
         }
     }
+    
+    public Autor buscarPorNomnre(String nombre) {
+        try {
+            Autor autor = null;
+            autor = DAO.buscarAutorPorNombre(nombre);
+            return autor;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+    
+    
 }

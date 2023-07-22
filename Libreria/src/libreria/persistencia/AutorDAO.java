@@ -1,5 +1,6 @@
 package libreria.persistencia;
 
+import java.util.List;
 import libreria.entidades.Autor;
 
 /**
@@ -20,5 +21,20 @@ public class AutorDAO extends DAO<Autor> {
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
+    }
+    
+    public Autor buscarAutorPorNombre(String nombre) throws Exception {
+        try {
+            conectar();
+            List<Autor> autores = em.createQuery("SELECT a FROM Autor a WHERE a.nombre LIKE :nombre")
+                    .setParameter("nombre", nombre).getResultList();
+            desconectar();
+            if (!autores.isEmpty()) {
+                return autores.get(0);//Devuelve el primer autor si la lista no esta vacía.
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        return null;
     }
 }

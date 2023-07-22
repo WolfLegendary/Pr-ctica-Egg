@@ -140,4 +140,19 @@ public class LibroDAO extends DAO<Libro> {
         return null;
     }
 
+    public Libro buscarPorNombreDeEditoreal(String nombre) throws Exception {
+        try {
+            conectar();
+            List<Libro> libros = em.createQuery("SELECT l FROM Libro l WHERE l.editoreal.nombre LIKE :nombre")
+                    .setParameter("nombre", nombre).getResultList();
+            desconectar();
+            if (!libros.isEmpty()) {
+                return libros.get(0);//Devuelve el primer libro si la lista no esta vacía.
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        return null;
+    }
+
 }

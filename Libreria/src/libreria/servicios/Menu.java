@@ -79,20 +79,50 @@ public class Menu {
 
     public Libro buscarLibroPorNombreDeAutor() {
         leer.nextLine();
-        System.out.println("Ingrese el nombre del autor, del libro a consultar.");
+        System.out.println("Ingrese el nombre del Autor, del libro a consultar.");
         String autor = leer.nextLine();
         Libro libro = libroServicio.buscarPorNombreDeAutor(autor);
         if (libro != null) {
-            System.out.println("El libro con el nombre " + autor + " de autor es:");
+            System.out.println("El libro con el nombre " + autor + " de Autor es:");
             System.out.println(libro);
             return libro;
         } else {
-            System.out.println("No se ha encontrado libro con el nombre " + autor + " de autor.");
+            System.out.println("No se ha encontrado libro con el nombre " + autor + " de Autor.");
             return null;
         }
     }
-    
-       public Libro buscarLibroPorISBN() {
+
+    public Libro buscarLibroPorNombreDeEditoreal() {
+        leer.nextLine();
+        System.out.println("Ingrese el nombre de Editoreal, del libro a consultar.");
+        String nombre = leer.nextLine();
+        Libro libro = libroServicio.buscarPorNombreDeEditoreal(nombre);
+        if (libro != null) {
+            System.out.println("El libro con el nombre " + nombre + " de Editoreal es:");
+            System.out.println(libro);
+            return libro;
+        } else {
+            System.out.println("No se ha encontrado libro con el nombre " + nombre + " de Editoreal.");
+            return null;
+        }
+    }
+
+    public Libro buscarLibroPorNombre() {
+        leer.nextLine();
+        System.out.println("Ingrese el nombre del libro a consultar.");
+        String nombre = leer.nextLine();
+        Libro libro = libroServicio.buscarPorTitulo(nombre);
+        if (libro != null) {
+            System.out.println("El libro con el nombre " + nombre + " es:");
+            System.out.println(libro);
+            return libro;
+        } else {
+            System.out.println("No se ha encontrado libro con el nombre " + nombre + ".");
+            return null;
+        }
+    }
+
+    public Libro buscarLibroPorISBN() {
         System.out.println("Ingrese el ISBN del libro a consultar.");
         Long isbn = leer.nextLong();
         Libro libro = libroServicio.buscarPorISBN(isbn);
@@ -105,15 +135,21 @@ public class Menu {
             return null;
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    public Autor buscarAutorPorNombre() {
+        leer.nextLine();
+        System.out.println("Ingrese el nombre del autor a consultar.");
+        String nombre = leer.nextLine();
+        Autor autor = autorServicio.buscarPorNomnre(nombre);
+        if (autor != null) {
+            System.out.println("El libro con el nombre " + nombre + " de autor es:");
+            System.out.println(autor);
+            return autor;
+        } else {
+            System.out.println("No se ha encontrado el autor con el nombre " + nombre + ".");
+            return null;
+        }
+    }
 
     public void menu() {
         System.out.println("¡Bienvenido!");
@@ -122,11 +158,14 @@ public class Menu {
             System.out.println("Escoja una opción del menú.");
             System.out.println("1- Listamos todos los libros.");
             System.out.println("2- Buscamos un libro por nombre de Autor.");
-            System.out.println("3- Buscamos un libro por código ISBN.");
-            System.out.println("4- Buscamos un libro por nombre de título.");
-            System.out.println("5- Modificamos el nombre del título de un libro.");
-            System.out.println("6- Creamos un libro nuevo.");
-            System.out.println("7- Salir.");
+            System.out.println("3- Dar de baja/alta un libro.");
+            System.out.println("4- Buscar un autor por nombre.");
+            System.out.println("5- Buscamos un libro por código ISBN.");
+            System.out.println("6- Buscamos un libro por nombre de título.");
+            System.out.println("7- Buscamos un libro por nombre de Editoreal.");
+            System.out.println("8- Modificamos el nombre del título de un libro.");
+            System.out.println("9- Creamos un libro nuevo.");
+            System.out.println("10- Salir.");
             opcion = leer.nextInt();
             switch (opcion) {
                 case 1:
@@ -147,21 +186,45 @@ public class Menu {
                     break;
                 case 3:
                     try {
-                        // Buscamos un libro por código ISBN.
-                        buscarLibroPorISBN();
+                        // Dar de baja/alta un libro.
+                        altaBajaLibro();
                     } catch (Exception e) {
                         System.out.println("Error del sistema por \n" + e.getMessage());
                     }
                     break;
                 case 4:
                     try {
-                        // Buscamos un libro por nombre de título.
-                        System.out.println("No se creó el método todavía.");
+                        // Buscar un autor por nombre
+                        buscarAutorPorNombre();
                     } catch (Exception e) {
                         System.out.println("Error del sistema por \n" + e.getMessage());
                     }
                     break;
                 case 5:
+                    try {
+                        // Buscamos un libro por código ISBN.
+                        buscarLibroPorISBN();
+                    } catch (Exception e) {
+                        System.out.println("Error del sistema por \n" + e.getMessage());
+                    }
+                    break;
+                case 6:
+                    try {
+                        // Buscamos un libro por nombre de título.
+                        buscarLibroPorNombre();
+                    } catch (Exception e) {
+                        System.out.println("Error del sistema por \n" + e.getMessage());
+                    }
+                    break;
+                case 7:
+                    try {
+                        // Buscamos un libro por nombre de Editoreal.
+                        buscarLibroPorNombreDeEditoreal();
+                    } catch (Exception e) {
+                        System.out.println("Error del sistema por \n" + e.getMessage());
+                    }
+                    break;
+                case 8:
                     try {
                         // Modificamos el nombre del título de un libro.
                         modificarLibro();
@@ -169,7 +232,7 @@ public class Menu {
                         System.out.println("Error del sistema por \n" + e.getMessage());
                     }
                     break;
-                case 6:
+                case 9:
                     try {
                         // Creamos un libro nuevo.
                         crearLibro();
@@ -177,14 +240,14 @@ public class Menu {
                         System.out.println("Error del sistema por \n" + e.getMessage());
                     }
                     break;
-                case 7:
+                case 10:
                     System.out.println("¡Hasta pronto!");
                     break;
                 default:
                     System.out.println("Ha ingresado una opción no válida.");
                     break;
             }
-        } while (opcion != 7);
+        } while (opcion != 10);
         leer.close(); // Cierra el objeto Scanner al final del método.
     }
 }
