@@ -16,11 +16,13 @@ public class Menu {
     private final AutorServicio autorServicio = new AutorServicio();
     private final EditorealServicio editorealServicio = new EditorealServicio();
     private final LibroServicio libroServicio = new LibroServicio();
+    private final ClienteServicio clienteServicio = new ClienteServicio();
 
     public Menu() {
         libroServicio.setServicios(autorServicio, editorealServicio);
         autorServicio.setServicios(libroServicio, editorealServicio);
         editorealServicio.setServicios(autorServicio, libroServicio);
+        clienteServicio.setServicios(autorServicio, editorealServicio, libroServicio);
     }
     //Métodos generales
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
@@ -48,6 +50,13 @@ public class Menu {
             Libro libro = libroServicio.crearLibro(titulo, anio, ejemplares, ejemplatesPrestados, ejemplaresRestantes, autor, editoreal);
             return libro;
         }
+    }
+
+    public void crearCliente() {
+        leer.nextLine();
+        System.out.println("Ingrese el nombre del cliente.");
+        String nombre = leer.nextLine();
+        clienteServicio.crearCliente(nombre);
     }
 
     public void imprimirLibros() {
@@ -185,7 +194,10 @@ public class Menu {
             System.out.println("8- Modificamos el nombre del título de un libro.");
             System.out.println("9- Creamos un libro nuevo.");
             System.out.println("10- Cambiamos el autor de un libro.");
-            System.out.println("11- Salir.");
+            System.out.println("11- Crear cliente.");
+            System.out.println("12- Registrar el préstamo de un libro.");
+            System.out.println("13- Devolver un libro.");
+            System.out.println("14- Salir.");
             opcion = leer.nextInt();
             switch (opcion) {
                 case 1:
@@ -269,13 +281,37 @@ public class Menu {
                     }
                     break;
                 case 11:
+                    try {
+                        // Crear cliente.
+                        crearCliente();
+                    } catch (Exception e) {
+                        System.out.println("Error del sistema por \n" + e.getMessage());
+                    }
+                    break;
+                case 12:
+                    try {
+                        // Registrar el préstamo de un libro.
+                        
+                    } catch (Exception e) {
+                        System.out.println("Error del sistema por \n" + e.getMessage());
+                    }
+                    break;
+                case 13:
+                    try {
+                        // 
+                        
+                    } catch (Exception e) {
+                        System.out.println("Error del sistema por \n" + e.getMessage());
+                    }
+                    break;
+                case 14:
                     System.out.println("¡Hasta pronto!");
                     break;
                 default:
                     System.out.println("Ha ingresado una opción no válida.");
                     break;
             }
-        } while (opcion != 11);
+        } while (opcion != 14);
         leer.close(); // Cierra el objeto Scanner al final del método.
     }
 }
